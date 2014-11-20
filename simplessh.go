@@ -1,11 +1,11 @@
 package simplessh
 
 import "bytes"
-import "code.google.com/p/go.crypto/ssh"
 import "errors"
+import "os"
 import "io/ioutil"
-import "os/user"
 import "strconv"
+import "code.google.com/p/go.crypto/ssh"
 
 type Config struct {
 	User     string
@@ -31,12 +31,7 @@ func NewClient(config *Config) (client *Client, err error) {
 
 	if len(config.KeyPaths) == 0 {
 
-		usr, err := user.Current()
-		if err != nil {
-			return client, err
-		}
-
-		keyPath := usr.HomeDir + "/.ssh/id_rsa"
+		keyPath := os.Getenv("HOME") + "/.ssh/id_rsa"
 		key, err := makePrivateKey(keyPath)
 
 		if err != nil {
