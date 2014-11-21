@@ -85,16 +85,10 @@ git clone https://github.com/meskyanichi/simplessh.git
 cd simplessh
 ```
 
-Install dependencies:
+To run test suite:
 
 ```sh
-go get -t
-```
-
-Run test suite:
-
-```sh
-go test ./...
+./bin/test
 ```
 
 Create branch, add/improve/test feature, submit pull request.
