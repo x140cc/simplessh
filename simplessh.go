@@ -1,11 +1,15 @@
 package simplessh
 
-import "bytes"
-import "errors"
-import "os"
-import "io/ioutil"
-import "strconv"
-import "code.google.com/p/go.crypto/ssh"
+import (
+	"bytes"
+	"errors"
+	"golang.org/x/crypto/ssh"
+	"golang.org/x/crypto/ssh/agent"
+	"io/ioutil"
+	"net"
+	"os"
+	"strconv"
+)
 
 type Config struct {
 	User     string
@@ -30,24 +34,28 @@ func NewClient(config *Config) (client *Client, err error) {
 	}
 
 	if len(config.KeyPaths) == 0 {
-
 		keyPath := os.Getenv("HOME") + "/.ssh/id_rsa"
 		key, err := makePrivateKey(keyPath)
 
-		if err != nil {
-			return client, err
+		if err == nil {
+			clientConfig.Auth = append(clientConfig.Auth, ssh.PublicKeys(key))
 		}
-
-		clientConfig.Auth = append(clientConfig.Auth, ssh.PublicKeys(key))
 	} else {
-
 		keys, err := makePrivateKeys(config.KeyPaths)
 
-		if err != nil {
-			return client, err
+		if err == nil {
+			clientConfig.Auth = append(clientConfig.Auth, ssh.PublicKeys(keys...))
 		}
+	}
 
-		clientConfig.Auth = append(clientConfig.Auth, ssh.PublicKeys(keys...))
+	sock, err := net.Dial("unix", os.Getenv("SSH_AUTH_SOCK"))
+	if err == nil {
+		agent := agent.NewClient(sock)
+		signers, err := agent.Signers()
+
+		if err == nil {
+			clientConfig.Auth = append(clientConfig.Auth, ssh.PublicKeys(signers...))
+		}
 	}
 
 	if config.Port == 0 {
