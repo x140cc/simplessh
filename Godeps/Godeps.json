@@ -1,0 +1,32 @@
+{
+	"ImportPath": "github.com/mrrooijen/simplessh",
+	"GoVersion": "go1.6",
+	"GodepVersion": "v70",
+	"Deps": [
+		{
+			"ImportPath": "github.com/stretchr/testify/assert",
+			"Comment": "v1.0-49-g2b15294",
+			"Rev": "2b15294402a895a4224659d181866f545991021e"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/curve25519",
+			"Rev": "5bcd134fee4dd1475da17714aac19c0aa0142e2f"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ed25519",
+			"Rev": "5bcd134fee4dd1475da17714aac19c0aa0142e2f"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ed25519/internal/edwards25519",
+			"Rev": "5bcd134fee4dd1475da17714aac19c0aa0142e2f"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ssh",
+			"Rev": "5bcd134fee4dd1475da17714aac19c0aa0142e2f"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ssh/agent",
+			"Rev": "5bcd134fee4dd1475da17714aac19c0aa0142e2f"
+		}
+	]
+}
