@@ -1,8 +1,11 @@
 package simplessh
 
-import "testing"
-import "github.com/stretchr/testify/assert"
-import "code.google.com/p/go.crypto/ssh"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"golang.org/x/crypto/ssh"
+)
 
 func TestMakePrivateKeys(t *testing.T) {
 	assert := assert.New(t)

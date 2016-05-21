@@ -3,12 +3,13 @@ package simplessh
 import (
 	"bytes"
 	"errors"
-	"golang.org/x/crypto/ssh"
-	"golang.org/x/crypto/ssh/agent"
 	"io/ioutil"
 	"net"
 	"os"
 	"strconv"
+
+	"golang.org/x/crypto/ssh"
+	"golang.org/x/crypto/ssh/agent"
 )
 
 type Config struct {
