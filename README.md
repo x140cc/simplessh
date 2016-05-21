@@ -1,6 +1,6 @@
 # SimpleSSH
 
-[![Build Status](https://travis-ci.org/meskyanichi/simplessh.svg)](https://travis-ci.org/meskyanichi/simplessh)
+[![Build Status](https://travis-ci.org/mrrooijen/simplessh.svg)](https://travis-ci.org/mrrooijen/simplessh)
 
 Lightweight and easy-to-use client wrapper around [go.crypto/ssh] making it
 easy to ssh into- and perform commands on a remote machine.
@@ -11,7 +11,7 @@ easy to ssh into- and perform commands on a remote machine.
 Simply import when you want to use it and `go get` it:
 
 ```go
-import "github.com/meskyanichi/simplessh"
+import "github.com/mrrooijen/simplessh"
 ```
 
 
@@ -24,7 +24,7 @@ package main
 
 import "fmt"
 import "os"
-import "github.com/meskyanichi/simplessh"
+import "github.com/mrrooijen/simplessh"
 
 func main() {
 	config := simplessh.Config{
@@ -81,7 +81,7 @@ To specify one or more different RSA keys:
 Fork/Clone the repository:
 
 ```sh
-git clone https://github.com/meskyanichi/simplessh.git
+git clone https://github.com/mrrooijen/simplessh.git
 cd simplessh
 ```
 
@@ -96,9 +96,9 @@ Create branch, add/improve/test feature, submit pull request.
 
 ### Author / License
 
-Copyright (c) 2014 Michael van Rooijen ( [@meskyanichi] )<br />
+Copyright (c) 2014 Michael van Rooijen ( [@mrrooijen] )<br />
 Released under the MIT [License].
 
-[@meskyanichi]: https://twitter.com/meskyanichi
-[License]: https://github.com/meskyanichi/simplessh/blob/master/LICENSE
+[@mrrooijen]: https://twitter.com/mrrooijen
+[License]: https://github.com/mrrooijen/simplessh/blob/master/LICENSE
 [go.crypto/ssh]: https://code.google.com/p/go.crypto/ssh
